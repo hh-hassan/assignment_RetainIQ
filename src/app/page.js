@@ -2,7 +2,7 @@
 
 import { useSelector, useDispatch} from "react-redux";
 import { addRow } from '../redux/tableSlice';
-import LeftPart from "./components/Leftpart";
+import LeftPart from "./components/LeftPart";
 import RightPart from './components/RightPart';
 import DesignsContainer from "./components/DesignsContainer";
 
