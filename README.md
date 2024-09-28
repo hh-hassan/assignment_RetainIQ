@@ -27,6 +27,7 @@ This project is a web application built using Next.js, Tailwind CSS, Redux with 
 
 2. **Navigate to the project directory:**
     
+   ```bash
    cd assignment_RetainIQ
 
 3. **Install dependencies:**
@@ -40,7 +41,7 @@ This project is a web application built using Next.js, Tailwind CSS, Redux with 
     **Start the application in development mode:**
 
     npm run dev
-    
+
 Open your browser:
 
 Visit http://localhost:3000 to view the application in your browser.
