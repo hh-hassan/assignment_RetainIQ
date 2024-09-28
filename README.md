@@ -1,6 +1,6 @@
 # Assignment RetainIQ
 
-This project is a web application built using Next.js, Tailwind CSS, Redux with RTK Toolkit for state management, react-beautiful-dnd for drag-and-drop functionality, & used react-icons for cute icons.
+This project is a web application built using Next.js, Tailwind CSS, Redux with RTK Toolkit for state management, react-beautiful-dnd for drag-and-drop functionality, react-toastify for toast notifications & react-icons for cute icons.
 
 ## Features
 
