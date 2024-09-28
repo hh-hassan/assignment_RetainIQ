@@ -39,6 +39,7 @@ const ColBox = ({r, c}) => {
 
             </div>
         </div>
+        
     )
 }
 

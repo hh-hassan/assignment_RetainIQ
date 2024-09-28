@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
+import { Droppable } from 'react-beautiful-dnd';
 import RowStart from './RowStart';
 
-const LeftPart = ({ tableData }) => {
+const LeftPart = () => {
 
     const rows = useSelector((store) => store.table.table.length);
 
@@ -16,7 +17,7 @@ const LeftPart = ({ tableData }) => {
 
         setStartArr(currStartArr);
     
-      }, [rows])
+    }, [rows])
     
     return (
         
@@ -26,7 +27,16 @@ const LeftPart = ({ tableData }) => {
                 Product filter
             </div>
 
-            {startArr}
+            <Droppable droppableId="droppable-1">
+            {
+                (provided) => ( 
+                        <div ref={provided.innerRef} {...provided.droppableProps}>
+                            {startArr}
+                            {provided.placeholder}
+                        </div>
+                    )  
+            }
+            </Droppable>
 
         </div>
     )
