@@ -1,22 +1,24 @@
 # Assignment RetainIQ
 
-This project is a web application built using Next.js, Tailwind CSS, Redux with RTK Toolkit for state management, react-beautiful-dnd for drag-and-drop functionality, react-icons for icons.
+This project is a web application built using Next.js, Tailwind CSS, Redux with RTK Toolkit for state management, react-beautiful-dnd for drag-and-drop functionality, & used react-icons for cute icons.
 
 ## Features
 
-- Drag-and-drop functionality using react-beautiful-dnd
-- Responsive design with Tailwind CSS
-- Icon integration using react-icons
-- State management with Redux and RTK Toolkit
+- Add/Delete a State
+- Add/Delete Variant Columns
+- Row Reordering
+- Design Insertion
+- Eye for perfection
+
 
 ## Technologies Used
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
-- [react-icons](https://react-icons.github.io/react-icons/)
 - [Redux](https://redux.js.org/)
 - [RTK Toolkit](https://redux-toolkit.js.org/)
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
+- [react-icons](https://react-icons.github.io/react-icons/)
 
 ## Setup Instructions
 
