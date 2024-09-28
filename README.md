@@ -25,23 +25,24 @@ This project is a web application built using Next.js, Tailwind CSS, Redux with 
    ```bash
    git clone https://github.com/hh-hassan/assignment_RetainIQ.git
 
-2. Navigate to the project directory:   
-cd assignment_RetainIQ
+2. **Navigate to the project directory:**
+    
+    ```bash
+   cd assignment_RetainIQ
 
-3.Install dependencies:
+3. **Install dependencies:**
 
-Make sure you have Node.js installed. Then run:
+**Make sure you have Node.js installed. Then run:**
 
-bash
-Copy code
-npm install
-Run the development server:
+    ```bash
+    npm install
+
+4. **Run the development server:**
 
 Start the application in development mode:
 
-bash
-Copy code
-npm run dev
+    ```bash
+    npm run dev
 Open your browser:
 
 Visit http://localhost:3000 to view the application in your browser.
