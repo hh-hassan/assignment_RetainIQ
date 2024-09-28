@@ -1,55 +1,41 @@
 "use client";
 
-import { useSelector, useDispatch} from "react-redux";
-import { DragDropContext } from "react-beautiful-dnd";
-import dynamic from 'next/dynamic';
-import { addRow, reorderRows } from '../redux/tableSlice';
+import { useSelector } from "react-redux";
+import Table from "./components/Table";
+import NavBar from "./components/NavBar";
 import DesignsContainer from "./components/DesignsContainer";
-
-const LeftPart = dynamic(() => import('./components/LeftPart'), { ssr: false });
-const RightPart = dynamic(() => import('./components/RightPart'), { ssr: false });
+import { FaArrowLeft } from 'react-icons/fa';
 
 const Body = () => {
 
   const isOpen = useSelector((store) => store.design.isOpen);
-  
-  const dispatch = useDispatch();
-
-  const onDragEnd = (result) => {
-    
-    const { destination, source } = result;
-
-    if (!destination || destination.index === source.index) return;
-
-    dispatch(reorderRows({
-      sourceIndex: source.index,
-      destinationIndex: destination.index
-    }));
-
-    //console.log
-
-  };
 
   return (
   
-    <div className="m-10 p-10 rounded-lg bg-slate-100">
+    <div className="flex bg-white">
 
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div className="relative flex">
-          <LeftPart/>
-          <RightPart/>
+      <NavBar/>
+
+      <div className="ml-16 flex-1 overflow-auto">
+
+        <div className="flex justify-between items-center mx-10 py-5 border-b-2 border-b-gray-200">
+          
+          <div className="flex items-center justify-between">
+            <button className="m-2 p-1"><FaArrowLeft size={20} /></button>
+            <div className="w-80 m-2 p-1 text-2xl border-b border-b-black font-bold">Test_3 Staging</div>
+            <div className="flex justify-center items-center m-2 h-5 px-2 text-xs rounded-l-full rounded-r-full text-blue-600 border border-blue-600 bg-blue-100 font-semibold cursor-pointer">Primary feed</div>
+          </div>
+
+          <button className="bg-green-600 rounded-md text-sm text-white p-2">Publish Feed</button>
+
         </div>
-      </DragDropContext>
-      
-      <button 
-        className= "flex justify-center items-center bg-white text-3xl w-12 h-12 rounded-md border-2 border-gray-300" 
-        onClick={() => dispatch(addRow())}
-      >
-        +
-      </button>
+
+        <Table/>
+
+      </div>
 
       {isOpen && <DesignsContainer/>}
-    
+
     </div>
   )
 };
