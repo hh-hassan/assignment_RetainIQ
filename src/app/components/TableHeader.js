@@ -6,7 +6,7 @@ import { deleteCol } from '../../redux/tableSlice';
 const TableHeader = () => {
     
     const dispatch = useDispatch();
-    const cols = useSelector((store) => store.table.table[0].content.length);
+    const cols = useSelector((store) => store.table.table?.[0]?.content.length);
 
     const [titles, setTitles] = useState(null);
 

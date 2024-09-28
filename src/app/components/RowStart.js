@@ -10,6 +10,8 @@ const RowStart = ({ind}) => {
 
     const filters = useSelector((store) => store.table.table?.[ind-1]?.filters);
     
+    if(!filters) return;
+    
     return ( 
         
         <Draggable index={ind-1} draggableId={`row-${ind-1}`}>
@@ -35,9 +37,9 @@ const RowStart = ({ind}) => {
 
                         </div>
 
-                        <div className={`flex flex-wrap items-center justify-center mx-5 my-5 w-80 h-40 border-2 border-dashed border-gray-200 bg-white ${filters.length !== 0 ? 'hover:w-[490px] hover:h-20 hover:z-5 hover:absolute hover:transition-all hover:duration-300 hover:translate-x-14' : ''}`}>   
+                        <div className={`flex flex-wrap items-center justify-center mx-5 my-5 w-80 h-40 border-2 border-dashed border-gray-200 bg-white ${filters?.length !== 0 ? 'hover:w-[490px] hover:h-20 hover:z-5 hover:absolute hover:transition-all hover:duration-300 hover:translate-x-14' : ''}`}>   
                         {   
-                            filters.length===0?
+                            filters?.length===0?
                                 
                                 <button className="px-2 py-1 border-2 border-gray-100">+ Add Product Filters</button>
                                     :

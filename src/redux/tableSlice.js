@@ -14,13 +14,26 @@ const tableSlice = createSlice({
     reducers: {
        
         addRow: (state) => {
+            
             const newRow = {
                 filters: [],
-                content: Array.from({ length: state.table[0].content.length }, () => ({
+                content: [],
+            };
+        
+            if (state.table.length === 0) {
+                newRow.content.push({
                     imgId: null,
                     imgTitle: null,
-                })),
-            };
+                });
+            } 
+            
+            else {
+                newRow.content = Array.from({ length: state.table[0].content.length }, () => ({
+                    imgId: null,
+                    imgTitle: null,
+                }));
+            }
+        
             state.table.push(newRow);
         },
         

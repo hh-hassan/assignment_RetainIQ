@@ -7,7 +7,7 @@ import ColBox from './ColBox';
 const RowSection = ({r}) => {
     
     const dispatch = useDispatch();
-    const cols = useSelector((store) => store.table.table[0].content.length);
+    const cols = useSelector((store) => store.table.table?.[0]?.content.length);
 
     const [components, setComponents] = useState(null);
 

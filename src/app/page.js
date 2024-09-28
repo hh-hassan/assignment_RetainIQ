@@ -14,7 +14,7 @@ const Body = () => {
   const isOpen = useSelector((store) => store.design.isOpen);
 
   const rows = useSelector((state) => state.table.table.length);
-  const cols = useSelector((state) => state.table.table[0].content.length);
+  const cols = useSelector((state) => state.table?.table?.[0]?.content.length);
 
   const prevRowCount = useRef(rows);
   const prevColCount = useRef(cols);
