@@ -59,7 +59,7 @@ const tableSlice = createSlice({
         reorderRows: (state, action) => {
             const { sourceIndex, destinationIndex } = action.payload;
             const [removed] = state.table.splice(sourceIndex, 1);
-            state.table.splice(destinationIndex, 0, removed); // Insert in new position
+            state.table.splice(destinationIndex, 0, removed);
         },
 
     },
