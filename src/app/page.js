@@ -1,6 +1,9 @@
 "use client";
 
+import { useEffect, useRef } from 'react';
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Table from "./components/Table";
 import NavBar from "./components/NavBar";
 import DesignsContainer from "./components/DesignsContainer";
@@ -10,9 +13,35 @@ const Body = () => {
 
   const isOpen = useSelector((store) => store.design.isOpen);
 
+  const rows = useSelector((state) => state.table.table.length);
+  const cols = useSelector((state) => state.table.table[0].content.length);
+
+  const prevRowCount = useRef(rows);
+  const prevColCount = useRef(cols);
+
+  useEffect(() => {
+
+    if (prevRowCount.current !== rows) {
+      
+      if (prevRowCount.current < rows) toast.success('State added!');
+      else toast.success('State removed!');
+
+      prevRowCount.current = rows;
+    }
+
+    if (prevColCount.current !== cols) {
+      
+      if (prevColCount.current < cols) toast.success('Variant added!');
+      else toast.success('Variant removed!');
+
+      prevColCount.current = cols;
+    }
+
+  }, [rows, cols]);
+
   return (
   
-    <div className="flex bg-white">
+    <div className="relative flex bg-white">
 
       <NavBar/>
 
@@ -36,8 +65,20 @@ const Body = () => {
 
       {isOpen && <DesignsContainer/>}
 
+      <ToastContainer 
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop={true}
+        closeOnClick
+        pauseOnHover
+        closeButton={false}
+        className="absolute flex flex-col justify-center items-center w-44"
+      />
+
     </div>
-  )
+    
+  );
 };
 
 export default Body;

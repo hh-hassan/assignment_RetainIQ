@@ -15,7 +15,7 @@ const tableSlice = createSlice({
        
         addRow: (state) => {
             const newRow = {
-                title: `Title ${state.table.length + 1}`,
+                title: null,
                 content: Array.from({ length: state.table[0].content.length }, () => ({
                     imgId: null,
                     imgTitle: null,

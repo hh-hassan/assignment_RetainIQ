@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateBox } from "../../redux/tableSlice";
 import { change } from '../../redux/designSlice';
@@ -10,6 +10,13 @@ const DesignsContainer = () => {
 
     const designs = useSelector((store) => store.design.designs);
     const location = useSelector((store) => store.design.location);
+
+    const [filteredDesigns, setFilteredDesigns] = useState(designs);
+
+    const handleSearch = () => {
+        const newDesigns = designs.filter(design => design.imgTitle.toLowerCase().includes(search.current.value.toLowerCase()));
+        setFilteredDesigns(newDesigns);
+    };
 
     const handleInsert = (img, title) => {
         dispatch(updateBox({ rowIndex: location.row, colIndex: location.col, imgId: img, imgTitle: title }));
@@ -36,11 +43,12 @@ const DesignsContainer = () => {
 
                 <div className="flex items-center border-2 border-slate-400 rounded-lg p-2">
                     
-                    <button>
+                    <button onClick={handleSearch}>
                         <AiOutlineSearch size={24} />
                     </button>
 
                     <input
+                        ref={search}
                         type="text"
                         className="outline-none px-2"
                         placeholder="Search..."
@@ -52,7 +60,7 @@ const DesignsContainer = () => {
 
             <div className="flex flex-wrap justify-between">
                 
-                {designs.map((design, index) => (
+                {filteredDesigns.map((design, index) => (
                     
                     <div key={index} className="group relative border border-gray-200 rounded-lg w-40 m-2 p-2">
                         
