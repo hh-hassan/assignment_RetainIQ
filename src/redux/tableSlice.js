@@ -6,8 +6,8 @@ const tableSlice = createSlice({
     
     initialState: {
         table: [
-            { title: null, content: [{ imgId: null, imgTitle: null }] },
-            
+            { filters: [{title:"Product collection", isSelected: false}, {title:"contains", isSelected: true}, {title:"Anarkali Kurtas", isSelected: false}], 
+            content: [{ imgId: null, imgTitle: null }] },  
         ],
     },
 
@@ -15,7 +15,7 @@ const tableSlice = createSlice({
        
         addRow: (state) => {
             const newRow = {
-                title: null,
+                filters: [],
                 content: Array.from({ length: state.table[0].content.length }, () => ({
                     imgId: null,
                     imgTitle: null,
@@ -62,9 +62,14 @@ const tableSlice = createSlice({
             state.table.splice(destinationIndex, 0, removed);
         },
 
+        selectButton: (state, action) => {
+            const { rowIndex, butIndex } = action.payload;
+            state.table[rowIndex].filters[butIndex].isSelected = !(state.table[rowIndex].filters[butIndex].isSelected);
+        },
+
     },
 });
 
-export const { addRow, deleteRow, addCol, deleteCol, updateBox, reorderRows } = tableSlice.actions;
+export const { addRow, deleteRow, addCol, deleteCol, updateBox, reorderRows, selectButton } = tableSlice.actions;
 
 export default tableSlice.reducer;
