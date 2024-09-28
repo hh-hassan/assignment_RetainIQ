@@ -34,12 +34,14 @@ This project is a web application built using Next.js, Tailwind CSS, Redux with 
 
     **Make sure you have Node.js installed. Then run:**
 
+    ```bash
     npm install
 
 4. **Run the development server:**
 
     **Start the application in development mode:**
 
+    ```bash
     npm run dev
 
 Open your browser:
