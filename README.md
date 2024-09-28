@@ -20,6 +20,7 @@ This project is a web application built using Next.js, Tailwind CSS, Redux with 
 - [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
 - [react-icons](https://react-icons.github.io/react-icons/)
 
+
 ## Setup Instructions
 
 1. **Clone the repository:**
@@ -45,6 +46,7 @@ This project is a web application built using Next.js, Tailwind CSS, Redux with 
 
     ```bash
     npm run dev
+
 
 Open your browser:
 
