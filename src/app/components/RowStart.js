@@ -18,7 +18,7 @@ const RowStart = ({ind}) => {
         {
             (provided) => (
                     
-                    <div ref={provided.innerRef} {...provided.draggableProps} className="flex items-center justify-between">
+                    <div ref={provided.innerRef} {...provided.draggableProps} className="group flex items-center justify-between">
                                 
                         <div className="flex items-center justify-centre h-40 border-r-2 border-r-gray-200 p-2">
                             
@@ -37,7 +37,7 @@ const RowStart = ({ind}) => {
 
                         </div>
 
-                        <div className={`flex flex-wrap items-center justify-center mx-5 my-5 w-80 h-40 border-2 border-dashed border-gray-200 bg-white ${filters?.length !== 0 ? 'hover:w-[490px] hover:h-20 hover:z-5 hover:absolute hover:transition-all hover:duration-300 hover:translate-x-14' : ''}`}>   
+                        <div className={`flex flex-wrap items-center justify-center mx-5 my-5 w-80 h-40 border-2 border-dashed border-gray-200 bg-white ${filters?.length !== 0 ? 'group-hover:w-[490px] group-hover:h-20 group-hover:z-5 group-hover:absolute group-hover:transition-all group-hover:duration-300 group-hover:translate-x-14' : ''}`}>   
                         {   
                             filters?.length===0?
                                 

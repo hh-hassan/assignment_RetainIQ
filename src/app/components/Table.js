@@ -17,8 +17,8 @@ const Table = () => {
         if (!destination || destination.index === source.index) return;
 
         dispatch(reorderRows({
-        sourceIndex: source.index,
-        destinationIndex: destination.index
+            sourceIndex: source.index,
+            destinationIndex: destination.index
         }));
     };
     
@@ -27,17 +27,17 @@ const Table = () => {
         <div className="mx-10 my-5 p-10 rounded-lg bg-slate-100">
 
             <DragDropContext onDragEnd={onDragEnd}>
-            <div className="relative flex">
-                <LeftPart/>
-                <RightPart/>
-            </div>
+                <div className="relative flex">
+                    <LeftPart/>
+                    <RightPart/>
+                </div>
             </DragDropContext>
             
             <button 
-            className= "flex justify-center items-center bg-white text-3xl w-12 h-12 rounded-md border-2 border-gray-300" 
-            onClick={() => dispatch(addRow())}
+                className= "flex justify-center items-center bg-white text-3xl w-12 h-12 rounded-md border-2 border-gray-300" 
+                onClick={() => dispatch(addRow())}
             >
-            +
+                +
             </button>
       
         </div>

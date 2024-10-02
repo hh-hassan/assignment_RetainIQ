@@ -5,10 +5,21 @@ const tableSlice = createSlice({
     name: 'table',
     
     initialState: {
+        
         table: [
-            { filters: [{title:"Product collection", isSelected: false}, {title:"contains", isSelected: true}, {title:"Anarkali Kurtas", isSelected: false}], 
-            content: [{ imgId: null, imgTitle: null }] },  
+            { 
+                filters: [
+                    {title:"Product collection", isSelected: false}, 
+                    {title:"contains", isSelected: true}, 
+                    {title:"Anarkali Kurtas", isSelected: false}
+                ],
+
+                content: [{ imgId: null, imgTitle: null }] 
+            },  
         ],
+
+        addInProcess: false,
+        deleteInProcess: false,
     },
 
     reducers: {
@@ -79,10 +90,9 @@ const tableSlice = createSlice({
             const { rowIndex, butIndex } = action.payload;
             state.table[rowIndex].filters[butIndex].isSelected = !(state.table[rowIndex].filters[butIndex].isSelected);
         },
-
     },
 });
 
-export const { addRow, deleteRow, addCol, deleteCol, updateBox, reorderRows, selectButton } = tableSlice.actions;
+export const { addRow, deleteRow, addCol, deleteCol, updateBox, reorderRows, selectButton, changeAddInProcess, changeDeleteInProcess } = tableSlice.actions;
 
 export default tableSlice.reducer;
