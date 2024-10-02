@@ -18,7 +18,7 @@ const RowStart = ({ind}) => {
         {
             (provided) => (
                     
-                    <div ref={provided.innerRef} {...provided.draggableProps} className="group flex items-center justify-between">
+                    <div ref={provided.innerRef} {...provided.draggableProps} className="group flex items-center justify-between h-[200px]">
                                 
                         <div className="flex items-center justify-centre h-40 border-r-2 border-r-gray-200 p-2">
                             

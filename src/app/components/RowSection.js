@@ -13,11 +13,11 @@ const RowSection = ({r}) => {
 
     useEffect(() => {
 
-    const currComponent = [];
+        const currComponent = [];
 
-    for (let i = 0; i < cols; i++)  currComponent.push(<ColBox key={i} r={r} c={i}/>);
+        for (let i = 0; i < cols; i++)  currComponent.push(<ColBox key={i} r={r} c={i}/>);
 
-    setComponents(currComponent);
+        setComponents(currComponent);
 
     }, [cols])
     
@@ -26,6 +26,7 @@ const RowSection = ({r}) => {
         <Draggable index={r} draggableId={`row-${r}`}>
         {
             (provided) => (    
+                    
                     <div ref={provided.innerRef} {...provided.draggableProps} className="flex items-center">
 
                         <div className="flex justify-between">
