@@ -1,16 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-    isOpen: true,
-};
-
 const designSlice = createSlice({
     
     name: 'design',
     
     initialState: {
         
-        isOpen: false,
+        isDesignOpen: false,
 
         location: null,
 
@@ -31,8 +27,8 @@ const designSlice = createSlice({
     reducers: {
        
         change: (state) => {
-            if(state.isOpen) state.location = null;
-            state.isOpen = !state.isOpen;
+            if(state.isDesignOpen) state.location = null;
+            state.isDesignOpen = !state.isDesignOpen;
         },
 
         setLocation: (state, action) => {

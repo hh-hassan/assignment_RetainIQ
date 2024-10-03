@@ -6,12 +6,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Table from "./components/Table";
 import NavBar from "./components/NavBar";
+import FiltersContainer from './components/FiltersContainer';
 import DesignsContainer from "./components/DesignsContainer";
 import { FaArrowLeft } from 'react-icons/fa';
 
 const Body = () => {
 
-  const isOpen = useSelector((store) => store.design.isOpen);
+  const isFilterOpen = useSelector((store) => store.filter.isFilterOpen);
+  
+  const isDesignOpen = useSelector((store) => store.design.isDesignOpen);
 
   const rows = useSelector((state) => state.table.table.length);
   const cols = useSelector((state) => state.table?.table?.[0]?.content.length);
@@ -63,7 +66,9 @@ const Body = () => {
 
       </div>
 
-      {isOpen && <DesignsContainer/>}
+      {isDesignOpen && <DesignsContainer/>}
+
+      {isFilterOpen && <FiltersContainer/>}
 
       <ToastContainer 
         position="top-center"

@@ -1,12 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Draggable } from 'react-beautiful-dnd';
 import { deleteRow, selectButton } from '../../redux/tableSlice'
+import { change, setLocation } from '../../redux/filterSlice';
 import { FaTrash } from "react-icons/fa";
 import { MdApps } from "react-icons/md";
 
 const RowStart = ({ind}) => {
     
     const dispatch = useDispatch();
+
+    const handleClick = () => {
+        dispatch(setLocation(ind-1));
+        dispatch(change());
+    }
 
     const filters = useSelector((store) => store.table.table?.[ind-1]?.filters);
     
@@ -41,7 +47,7 @@ const RowStart = ({ind}) => {
                         {   
                             filters?.length===0?
                                 
-                                <button className="px-2 py-1 border-2 border-gray-100">+ Add Product Filters</button>
+                                <button className="px-2 py-1 border-2 border-gray-100" onClick={handleClick}>+ Add Product Filters</button>
                                     :
                                         filters.map((f, index) => 
                                             

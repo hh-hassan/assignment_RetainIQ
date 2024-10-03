@@ -50,9 +50,7 @@ const tableSlice = createSlice({
         
         deleteRow: (state, action) => {
             const rowIndex = action.payload;
-            if (rowIndex >= 0 && rowIndex < state.table.length) {
-                state.table.splice(rowIndex, 1);
-            }
+            state.table.splice(rowIndex, 1);
         },
 
         addCol: (state) => {
@@ -63,27 +61,31 @@ const tableSlice = createSlice({
 
         deleteCol: (state, action) => {
             const colIndex = action.payload;
-            if (colIndex >= 0 && colIndex < state.table[0].content.length) {
-                state.table.forEach(row => {
-                    row.content.splice(colIndex, 1);
-                });
-            }
+            state.table.forEach(row => {
+                row.content.splice(colIndex, 1);
+            });
         },
 
         updateBox: (state, action) => {
             const { rowIndex, colIndex, imgId, imgTitle } = action.payload;
-            if (
-                rowIndex >= 0 && rowIndex < state.table.length &&
-                colIndex >= 0 && colIndex < state.table[rowIndex].content.length
-            ) {
-                state.table[rowIndex].content[colIndex] = { imgId, imgTitle };
-            }
+            state.table[rowIndex].content[colIndex] = { imgId, imgTitle };
         },
 
         reorderRows: (state, action) => {
             const { sourceIndex, destinationIndex } = action.payload;
             const [removed] = state.table.splice(sourceIndex, 1);
             state.table.splice(destinationIndex, 0, removed);
+        },
+
+        updateFilters: (state, action) => {
+            const { rowIndex, selectedOptions } = action.payload;
+            state.table[rowIndex] = {
+                ...state.table[rowIndex],
+                filters: selectedOptions.map((title) => ({
+                  title,
+                  isSelected: true,
+                })),
+            };
         },
 
         selectButton: (state, action) => {
@@ -93,6 +95,6 @@ const tableSlice = createSlice({
     },
 });
 
-export const { addRow, deleteRow, addCol, deleteCol, updateBox, reorderRows, selectButton, changeAddInProcess, changeDeleteInProcess } = tableSlice.actions;
+export const { addRow, deleteRow, addCol, deleteCol, updateBox, reorderRows, updateFilters, selectButton } = tableSlice.actions;
 
 export default tableSlice.reducer;

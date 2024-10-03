@@ -1,7 +1,7 @@
 // import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector} from "react-redux";
 // import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 import { change, setLocation } from '../../redux/designSlice';
 import { AiOutlineEdit } from 'react-icons/ai';
 
