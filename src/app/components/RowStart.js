@@ -28,9 +28,17 @@ const RowStart = ({ind}) => {
         
         <Draggable index={ind-1} draggableId={`row-${ind-1}`}>
         {
-            (provided) => (
+            (provided, snapshot) => {
+                
+                const style = {
+                    ...provided.draggableProps.style,
+                    left: snapshot.isDragging ? "144px" : "",
+                    width: "418px",
+                };
+                
+                return(  
                     
-                    <div ref={provided.innerRef} {...provided.draggableProps} className="group flex items-center justify-between h-[200px]">
+                    <div ref={provided.innerRef} {...provided.draggableProps} style={style} className="group flex items-center justify-between h-[200px]">
                                 
                         <div className="flex items-center justify-centre h-40 border-r-2 border-r-gray-200 p-2">
                             
@@ -69,6 +77,7 @@ const RowStart = ({ind}) => {
 
                     </div>
                 )
+            }
         }
         </Draggable>
            

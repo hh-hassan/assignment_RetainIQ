@@ -25,9 +25,17 @@ const RowSection = ({r}) => {
 
         <Draggable index={r} draggableId={`row-${r}`}>
         {
-            (provided) => (    
+            (provided, snapshot) => {
+                
+                const style = {
+                    ...provided.draggableProps.style,
+                    overflow: snapshot.isDragging ? "hidden" : "visible",
+                    left: snapshot.isDragging ? "562px" : "",
+                };
+                
+                return(    
                     
-                    <div ref={provided.innerRef} {...provided.draggableProps} className="flex items-center">
+                    <div ref={provided.innerRef} {...provided.draggableProps} style={style} className=" flex items-center">
 
                         <div className="flex justify-between">
                             {components}
@@ -46,6 +54,7 @@ const RowSection = ({r}) => {
 
                     </div>
                 )
+            }
         }
         </Draggable>
 

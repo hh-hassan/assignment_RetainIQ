@@ -30,7 +30,7 @@ const LeftPart = () => {
             <Droppable droppableId="droppable-1">
             {
                 (provided) => ( 
-                        <div ref={provided.innerRef} {...provided.droppableProps}>
+                        <div ref={provided.innerRef} {...provided.droppableProps} className="w-[418px]">
                             {startArr}
                             {provided.placeholder}
                         </div>
