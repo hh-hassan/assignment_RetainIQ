@@ -43,14 +43,13 @@ const DesignsContainer = () => {
 
                 <div className="flex items-center border-2 border-slate-400 rounded-lg p-2">
                     
-                    <button onClick={handleSearch}>
-                        <AiOutlineSearch size={24} />
-                    </button>
+                    <div><AiOutlineSearch size={24} /></div>
 
                     <input
                         ref={search}
                         type="text"
                         className="outline-none px-2"
+                        onChange={handleSearch}
                         placeholder="Search..."
                     />
 
