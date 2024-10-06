@@ -12,7 +12,13 @@ const RowStart = ({ind}) => {
     const handleClick = () => {
         dispatch(setLocation(ind-1));
         dispatch(change());
-    }
+    };
+
+    const handleButton = (index) => {
+        dispatch(selectButton({rowIndex: ind-1, butIndex: index}))
+        dispatch(setLocation(ind-1));
+        dispatch(change());
+    };
 
     const filters = useSelector((store) => store.table.table?.[ind-1]?.filters);
     
@@ -24,7 +30,7 @@ const RowStart = ({ind}) => {
         {
             (provided) => (
                     
-                    <div ref={provided.innerRef} {...provided.draggableProps} className="group flex items-center justify-between h-[200px]">
+                    <div ref={provided.innerRef} className="group flex items-center justify-between h-[200px]">
                                 
                         <div className="flex items-center justify-centre h-40 border-r-2 border-r-gray-200 p-2">
                             
@@ -54,7 +60,7 @@ const RowStart = ({ind}) => {
                                             <button 
                                                 key={index}
                                                 className={`border border-gray-200 m-1 p-1 text-sm rounded-md transition-colors duration-200 ${f.isSelected ? 'text-green-700 bg-green-50 border-green-400 font-semibold' : ''}`}
-                                                onClick={() => dispatch(selectButton({rowIndex: ind-1, butIndex: index}))}
+                                                onClick={() => handleButton(index)}
                                             >
                                                 {f.title}
                                             </button>)

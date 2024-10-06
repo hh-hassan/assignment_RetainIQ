@@ -9,9 +9,9 @@ const tableSlice = createSlice({
         table: [
             { 
                 filters: [
-                    {title:"Product collection", isSelected: false}, 
-                    {title:"contains", isSelected: true}, 
-                    {title:"Anarkali Kurtas", isSelected: false}
+                    {title:"target men", isSelected: false}, 
+                    {title:"categories shirts", isSelected: true}, 
+                    {title:"brand adidas", isSelected: false}
                 ],
 
                 content: [{ imgId: null, imgTitle: null }] 

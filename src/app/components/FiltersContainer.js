@@ -9,9 +9,13 @@ const FiltersContainer = () => {
     const dispatch = useDispatch();
 
     const filters = useSelector((store) => store.filter.filters);
+
     const row = useSelector((store) => store.filter.row);
 
-    const [selectedOptions, setSelectedOptions] = useState([]);
+    const prevFilters = useSelector((store) => store.table.table?.[row]?.filters);
+    const filterTitles = prevFilters ? prevFilters.map(filter => filter.title) : [];
+
+    const [selectedOptions, setSelectedOptions] = useState(filterTitles);
 
     const handleCheckboxChange = (title, option) => {
         
@@ -53,6 +57,7 @@ const FiltersContainer = () => {
 
                         <input
                             type="checkbox"
+                            checked={selectedOptions.includes(`${filters[0].title.toLowerCase()} ${option.toLowerCase()}`)} 
                             onChange={() => handleCheckboxChange(filters[0].title, option)}
                             className="h-4 w-4 rounded-full appearance-none border-2 border-gray-300 checked:bg-green-600"
                         />
@@ -79,6 +84,7 @@ const FiltersContainer = () => {
 
                                     <input
                                         type="checkbox"
+                                        checked={selectedOptions.includes(`${filter.title.toLowerCase()} ${option.toLowerCase()}`)} 
                                         onChange={() => handleCheckboxChange(filter.title, option)}
                                         className="mx-1 h-3 w-3 appearance-none border-2 border-gray-300 checked:bg-green-600"
                                     />
