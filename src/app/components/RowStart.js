@@ -38,7 +38,7 @@ const RowStart = ({ind}) => {
                 
                 return(  
                     
-                    <div ref={provided.innerRef} {...provided.draggableProps} style={style} className="group flex items-center justify-between h-[200px]">
+                    <div ref={provided.innerRef} {...provided.draggableProps} style={style} className="flex items-center justify-between h-[200px]">
                                 
                         <div className="flex items-center justify-centre h-40 border-r-2 border-r-gray-200 p-2">
                             
@@ -57,21 +57,27 @@ const RowStart = ({ind}) => {
 
                         </div>
 
-                        <div className={`flex flex-wrap items-center justify-center mx-5 my-5 w-80 h-40 border-2 border-dashed border-gray-200 bg-white ${filters?.length !== 0 ? 'group-hover:w-[490px] group-hover:h-20 group-hover:z-5 group-hover:absolute group-hover:transition-all group-hover:duration-300 group-hover:translate-x-14' : ''}`}>   
+                        <div className="group flex items-center justify-center mx-5 my-5 w-80 h-40 border-2 border-dashed border-gray-200 bg-white">   
                         {   
                             filters?.length===0?
                                 
                                 <button className="px-2 py-1 border-2 border-gray-100" onClick={handleClick}>+ Add Product Filters</button>
                                     :
-                                        filters.map((f, index) => 
-                                            
-                                            <button 
-                                                key={index}
-                                                className={`border border-gray-200 m-1 p-1 text-sm rounded-md transition-colors duration-200 ${f.isSelected ? 'text-green-700 bg-green-50 border-green-400 font-semibold' : ''}`}
-                                                onClick={() => handleButton(index)}
-                                            >
-                                                {f.title}
-                                            </button>)
+                                        <div className="flex items-center justify-center rounded-md bg-white group-hover:border-2 group-hover:border-gray-200 group-hover:px-2 group-hover:w-[480px] group-hover:h-auto group-hover:z-5 group-hover:absolute group-hover:transition-all group-hover:duration-300 group-hover:translate-x-20">
+                                            <div className="flex flex-wrap items-center justify-center rounded-md bg-white group-hover:border-2 group-hover:border-gray-100 group-hover:px-2 group-hover:py-1 group-hover:m-3">
+                                                {
+                                                    filters.map((f, index) => 
+                                                    
+                                                    <button 
+                                                        key={index}
+                                                        className={`border border-gray-200 m-1 p-1 text-sm rounded-md transition-colors duration-200 ${f.isSelected ? 'text-green-700 bg-green-50 border-green-400 font-semibold' : ''}`}
+                                                        onClick={() => handleButton(index)}
+                                                    >
+                                                        {f.title}
+                                                    </button>)
+                                                }
+                                            </div>
+                                        </div>
                         }
                         </div>
 
