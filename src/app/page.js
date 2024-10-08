@@ -48,7 +48,7 @@ const Body = () => {
 
       <NavBar/>
 
-      <div className="ml-16 flex-1 overflow-auto">
+      <div className="ml-16 flex-1 overflow-auto h-screen">
 
         <div className="flex justify-between items-center mx-10 py-5 border-b-2 border-b-gray-200">
           

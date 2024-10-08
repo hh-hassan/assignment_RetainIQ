@@ -4,7 +4,7 @@ const NavBar = () => {
   
     return (
         
-      <div className=" bg-black text-white h-screen w-16 fixed flex justify-center">
+      <div className=" bg-black text-white h-screen w-16 fixed flex justify-center ">
        
         <div className="absolute flex flex-col top-0 justify-center m-2">
           <button className="mt-3 mb-5"><MdLocalFlorist size={30} color='green' /></button>
