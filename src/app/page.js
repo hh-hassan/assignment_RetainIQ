@@ -44,7 +44,7 @@ const Body = () => {
 
   return (
   
-    <div className="relative flex bg-white">
+    <div className="relative flex bg-white text-black">
 
       <NavBar/>
 
